@@ -20,7 +20,7 @@ import { api } from "@/convex/_generated/api";
 export const SearchCommand = () => {
   const { user } = useUser();
   const router = useRouter();
-  // const documents = useQuery(api.documents.getSearch);
+  const documents = useQuery(api.documents.getSearch);
   const [isMounted, setIsMounted] = useState(false);
 
   const toggle = useSearch((store) => store.toggle);
@@ -58,7 +58,7 @@ export const SearchCommand = () => {
       <CommandList>
         <CommandEmpty>No results found.</CommandEmpty>
         <CommandGroup heading="Documents">
-          {/* {documents?.map((document) => (
+          {documents?.map((document) => (
             <CommandItem
               key={document._id}
               value={`${document._id}-${document.title}`}
@@ -72,7 +72,7 @@ export const SearchCommand = () => {
               )}
               <span>{document.title}</span>
             </CommandItem>
-          ))} */}
+          ))}
         </CommandGroup>
       </CommandList>
     </CommandDialog>
