@@ -24,7 +24,6 @@ const DocumentIdPage = ({ params }: DocumentIdPageProps) => {
   const document = useQuery(api.documents.getById, {
     documentId: params.documentId,
   });
-  console.log("ddd", document);
 
   const update = useMutation(api.documents.update);
 

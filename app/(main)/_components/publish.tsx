@@ -11,7 +11,7 @@ import {
   Popover,
   PopoverContent,
 } from "@/components/ui/popover";
-// import { useOrigin } from "@/hooks/use-origin";
+import { useOrigin } from "@/hooks/use-origin";
 import { api } from "@/convex/_generated/api";
 import { Button } from "@/components/ui/button";
 
@@ -20,7 +20,7 @@ interface PublishProps {
 }
 
 export const Publish = ({ initialData }: PublishProps) => {
-  // const origin = useOrigin();
+  const origin = useOrigin();
   const update = useMutation(api.documents.update);
 
   const [copied, setCopied] = useState(false);
