@@ -24,7 +24,6 @@ export const DocumentList = ({
   const params = useParams();
   const router = useRouter();
   const [expanded, setExpanded] = useState<Record<string, boolean>>({});
-  console.log(expanded);
 
   const onExpand = (documentId: string) => {
     setExpanded((prevExpanded) => ({

@@ -10,8 +10,8 @@ import { Button } from "@/components/ui/button";
 import { Skeleton } from "@/components/ui/skeleton";
 
 interface TitleProps {
-  // initialData: Doc<"documents">;
-  initialData: any;
+  initialData: Doc<"documents">;
+  // initialData: any;
 }
 
 export const Title = ({ initialData }: TitleProps) => {
@@ -26,7 +26,7 @@ export const Title = ({ initialData }: TitleProps) => {
     setIsEditing(true);
     setTimeout(() => {
       inputRef.current?.focus();
-      inputRef.current?.setSelectionRange(0, inputRef.current.value.length);
+      inputRef.current?.setSelectionRange(0, inputRef.current.value.length); //點及自動選取字串
     }, 0);
   };
 

@@ -3,6 +3,8 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import { ThemeProvider } from "@/providers/theme-providers";
 import { ConvexClientProvider } from "@/providers/convex-provider";
+import { ModalProvider } from "@/providers/modal-provider";
+import { EdgeStoreProvider } from "@/lib/edgestore";
 import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -34,17 +36,20 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <ConvexClientProvider>
-          <ThemeProvider
-            attribute="class"
-            defaultTheme="system"
-            enableSystem
-            disableTransitionOnChange
-          >
-            <Toaster position="bottom-center" />
-            {children}
-          </ThemeProvider>
-        </ConvexClientProvider>
+        <EdgeStoreProvider>
+          <ConvexClientProvider>
+            <ThemeProvider
+              attribute="class"
+              defaultTheme="system"
+              enableSystem
+              disableTransitionOnChange
+            >
+              <Toaster position="bottom-center" />
+              <ModalProvider />
+              {children}
+            </ThemeProvider>
+          </ConvexClientProvider>
+        </EdgeStoreProvider>
       </body>
     </html>
   );
